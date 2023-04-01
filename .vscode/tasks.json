@@ -1,0 +1,18 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "cargo debug",
+					"type": "shell",
+					"command": "cargo",
+					"args": [
+							"debug",
+							"--debugger=lldb",
+					],
+					"group": {
+							"kind": "build",
+							"isDefault": true
+					}
+			}
+	]
+}

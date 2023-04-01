@@ -1,0 +1,90 @@
+[package]
+name = "jazz"
+version = "0.1.0"
+edition = "2021"
+authors = [ "Jonathan Gill" ]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+# Enable max optimizations for dependencies, but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
+
+[dependencies]
+bevy_rapier2d = "0.21.0"
+bevy_ecs_ldtk = "0.6.0"
+# bevy_ecs_ldtk = { git = "https://github.com/evenius/bevy_ecs_ldtk.git" }
+bevy_embedded_assets = "0.7.0"
+
+[dependencies.bevy]
+  version = "0.10.0"
+  # Disable the default features if there are any that you do not want
+  default-features = false
+  features = [
+    # Bevy core functionality
+    
+    "bevy_scene", # Provides scene functionality
+    "bevy_asset", # Provides asset functionality
+    "bevy_audio", # Provides audio functionality
+    "bevy_gilrs", # Adds gamepad support
+    "bevy_winit", # winit window and input backend
+    "bevy_animation", # Provides animation functionality
+    "animation", # Enable animation support, and glTF animation loading
+    "serialize", # Enable serialization support through serde
+    
+
+    # Rendering 
+    "bevy_render",        # Rendering framework core
+    "bevy_core_pipeline", # Provides cameras and other basic render pipeline features
+    "bevy_sprite",        # 2D (sprites) rendering
+    "bevy_gltf", # [glTF](https://www.khronos.org/gltf/) 3D assets support
+    "bevy_pbr", # Adds PBR rendering - 3D (physically-based) rendering
+    "bevy_text", # Provides text functionality
+    "bevy_ui", # A custom ECS-driven UI framework
+
+
+    # Bevy extra functionality (Should be added as needed)
+    # "dynamic_linking", # Force dynamic linking, which improves iterative compile times
+    # "bevy_dynamic_plugin", # Plugin for dynamic loading (using [libloading](https://crates.io/crates/libloading))
+    # "wayland", # Wayland display server support
+    "x11", # X11 display server support
+    "subpixel_glyph_atlas", # Enable rendering of font glyphs using subpixel accuracy
+    "filesystem_watcher", # Enable watching file system for asset hot reload
+    # "android_shared_stdcxx", # Enable using a shared stdlib for cxx on Android
+    "tonemapping_luts", # Include tonemapping Look Up Tables KTX2 files
+    # "accesskit_unix", # Enable AccessKit on Unix backends (currently only works with experimental screen readers and forks.)
+
+    # Dev and debug
+    "trace", # Tracing support
+    # "wgpu_trace", # Save a trace of all wgpu calls. WARNING. Accidentally left this running over night and it filled up my hard drive. Literally billions of files. Took hours to clear out.
+    # "trace_chrome", # Tracing support, saving a file in Chrome Tracing format
+    # "trace_tracy", # Tracing support, exposing a port for Tracy
+    # "bevy_ci_testing", # Enable systems that allow for automated testing on CI
+    # "debug_asset_server", # Enable the "debug asset server" for hot reloading internal assets
+    "detailed_trace", # Enable detailed trace event logging. These trace events are expensive even when off, thus they require compile time opt-in
+    
+
+    # File format support
+    # "exr", # EXR image format support
+    # "hdr", # HDR image format support
+    "png", # PNG image format support
+    # "tga", # TGA image format support
+    # "jpeg", # JPEG image format support
+    # "bmp", # BMP image format support
+    # "basis-universal", # Basis Universal compressed texture support
+    # "dds", # DDS compressed texture support
+    "ktx2", # KTX2 compressed texture support
+    "zlib", # For KTX2 supercompression
+    "zstd", # For KTX2 supercompression
+    # "flac", # FLAC audio format support
+    # "mp3", # MP3 audio format support
+    # "vorbis", # OGG/VORBIS audio format support
+    # "wav", # WAV audio format support
+    # "minimp3", # MP3 audio format support (through minimp3)
+    # "symphonia-aac", # AAC audio format support (through symphonia)
+    # "symphonia-all", # AAC, FLAC, MP3, MP4, OGG/VORBIS, and WAV audio formats support (through symphonia)
+    # "symphonia-flac", # FLAC audio format support (through symphonia)
+    # "symphonia-isomp4", # MP4 audio format support (through symphonia)
+    # "symphonia-vorbis", # OGG/VORBIS audio format support (through symphonia)
+    # "symphonia-wav", # WAV audio format support (through symphonia)
+  ]
